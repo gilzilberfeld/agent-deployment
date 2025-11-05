@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="agent runs">
-      <change afterPath="$PROJECT_DIR$/.gcloudeignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gcloud_deploy_script.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solutions/agent_clean_up.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solutions/agent_external_prompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solutions/agent_health_check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/solutions/external_prompt.txt" afterDir="false" />
+    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="MOds and additions">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file1.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/file1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file2.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/file2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/verify_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762339066229</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="MOds and additions">
+      <option name="closed" value="true" />
+      <created>1762352130196</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1762352130196</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,6 +156,7 @@
     <MESSAGE value="Added the key to gitignore" />
     <MESSAGE value="Now really" />
     <MESSAGE value="agent runs" />
-    <option name="LAST_COMMIT_MESSAGE" value="agent runs" />
+    <MESSAGE value="MOds and additions" />
+    <option name="LAST_COMMIT_MESSAGE" value="MOds and additions" />
   </component>
 </project>
