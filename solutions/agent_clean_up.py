@@ -139,6 +139,20 @@ def handle_diff_request():
         print(f"An unexpected error occurred: {e}")
         return jsonify({"error": "An internal server error occurred."}), 500
 
+    finally:
+        # 5. Clean up files
+        # This `finally` block ensures cleanup runs
+        # even if an error happened in step 3.
+        # We only cleanup if the files were successfully downloaded.
+        print("Entering cleanup block...")
+        try:
+            if file1_name:
+                delete_file_from_gcs(file1_name)
+            if file2_name:
+                delete_file_from_gcs(file2_name)
+        except Exception as e:
+            # Don't fail the request if cleanup fails, just log it.
+            print(f"Warning: Cleanup failed for {file1_name} or {file2_name}: {e}")
 
 
 @app.route("/health", methods=['GET'])

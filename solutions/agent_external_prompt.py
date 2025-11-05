@@ -15,7 +15,7 @@ from google.cloud import storage
 import vertexai
 from vertexai.generative_models import GenerativeModel
 
-from config import GCP_PROJECT_ID, REGION_NAME, GCS_BUCKET_NAME
+from config import GCP_PROJECT_ID, REGION_NAME, GCS_BUCKET_NAME, PROMPT_FILE_PATH
 
 # --- Configuration ---
 
@@ -73,26 +73,15 @@ def delete_file_from_gcs(file_name):
         print(f"Warning: File already deleted or never existed: {file_name}")
 
 
-def get_gemini_diff(file1_content, file2_content):
+def get_gemini_diff(prompt_template, file1_content, file2_content):
     """Sends file contents to Gemini and asks for a diff."""
     if not gemini_model:
         raise Exception("Gemini model not initialized.")
 
-    # This prompt is key to our agent's quality!
-    prompt = f"""
-    You are an expert JSON comparison agent.
-    Analyze the two JSON objects below.
-    Return a JSON object that only describes the differences.
-    If there are no differences, return an empty JSON object {{}}.
-
-    File 1:
-    {file1_content}
-
-    File 2:
-    {file2_content}
-
-    Respond ONLY with the JSON diff object.
-    """
+    prompt = prompt_template.format(
+        content1=file1_content,
+        content2=file2_content
+    )
 
     print("Generating content with Gemini...")
     response = gemini_model.generate_content(prompt)
@@ -113,6 +102,17 @@ def handle_diff_request():
     file1_name = None
     file2_name = None
     try:
+
+        try:
+            print(f"Loading prompt from GCS: {PROMPT_FILE_PATH}")
+            prompt_template = download_file_from_gcs(PROMPT_FILE_PATH)
+        except FileNotFoundError:
+            print(f"CRITICAL ERROR: Prompt file not found at {PROMPT_FILE_PATH}")
+            return jsonify({"error": "Configuration error: Prompt template not found."}), 500
+        except Exception as e:
+            print(f"CRITICAL ERROR: Could not load prompt: {e}")
+            return jsonify({"error": "Configuration error: Could not load prompt."}), 500
+
         # 1. Get request data
         data = request.get_json()
         file1_name = data.get('file1')
@@ -139,15 +139,38 @@ def handle_diff_request():
         print(f"An unexpected error occurred: {e}")
         return jsonify({"error": "An internal server error occurred."}), 500
 
+    finally:
+        # 5. Clean up files
+        # This `finally` block ensures cleanup runs
+        # even if an error happened in step 3.
+        # We only cleanup if the files were successfully downloaded.
+        print("Entering cleanup block...")
+        try:
+            if file1_name:
+                delete_file_from_gcs(file1_name)
+            if file2_name:
+                delete_file_from_gcs(file2_name)
+        except Exception as e:
+            # Don't fail the request if cleanup fails, just log it.
+            print(f"Warning: Cleanup failed for {file1_name} or {file2_name}: {e}")
 
 
 @app.route("/health", methods=['GET'])
 def health_check():
-    """A simple health check endpoint."""
-    # This proves the server is running.
-    # A more advanced check would test dependencies (e.g., talk to GCS).
-    return jsonify({"status": "ok"}), 200
-
+    """
+    An advanced health check that also tests connectivity
+    to the Gemini API.
+    """
+    try:
+        # Test Gemini connection with a simple, harmless query
+        print("Testing Gemini connectivity...")
+        gemini_model.generate_content("test")
+        print("Gemini connectivity successful.")
+        return jsonify({"status": "ok", "dependencies": {"gemini": "ok"}}), 200
+    except Exception as e:
+        print(f"HEALTH CHECK FAILED: {e}")
+        # 503 Service Unavailable is the standard response
+        return jsonify({"status": "error", "dependencies": {"gemini": "failed"}}), 503
 
 # This allows us to run the app locally for testing
 if __name__ == "__main__":

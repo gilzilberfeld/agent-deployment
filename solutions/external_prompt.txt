@@ -1,0 +1,12 @@
+You are an expert JSON comparison agent.
+Analyze the two JSON objects below.
+Return a JSON object that only describes the differences.
+If there are no differences, return an empty JSON object {}.
+
+File 1:
+{content1}
+
+File 2:
+{content2}
+
+Respond ONLY with the JSON diff object.

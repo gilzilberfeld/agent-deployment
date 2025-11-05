@@ -1,0 +1,14 @@
+# This is the central configuration file for the workshop.
+#
+# PLEASE EDIT THE VALUES BELOW with the ones you created
+# during the pre-flight check (README.md).
+#
+# 1. GCP_PROJECT_ID: Found in Step 1 of the README
+# 2. GCS_BUCKET_NAME: The unique name you created in Step 3
+# 3. SERVICE_ACCOUNT_EMAIL: Found in Step 4 (IAM & Admin -> Service Accounts)
+
+GCP_PROJECT_ID = "test-project-475514"
+REGION_NAME = "europe-west1"
+GCS_BUCKET_NAME = "nu-bucket-12345"
+SERVICE_ACCOUNT_EMAIL = ""
+PROMPT_FILE_PATH="external_prompt.txt"

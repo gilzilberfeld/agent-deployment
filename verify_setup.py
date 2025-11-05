@@ -1,7 +1,7 @@
 import os
 from google.cloud import storage
 
-from config import PROJECT_ID, GCS_BUCKET_NAME
+from config import GCP_PROJECT_ID, GCS_BUCKET_NAME
 
 
 # --- PLEASE EDIT THESE TWO VALUES ---
@@ -23,7 +23,7 @@ def verify_setup():
 
     print("- Checking authentication...")
     try:
-        storage_client = storage.Client(project=PROJECT_ID)
+        storage_client = storage.Client(project=GCP_PROJECT_ID)
         print("  - Authentication successful.")
     except Exception as e:
         print(f"❌ ERROR: Could not authenticate with Google Cloud. Error: {e}")
@@ -61,7 +61,7 @@ def verify_setup():
 
 
 if __name__ == "__main__":
-    if PROJECT_ID == "your-gcp-project-id-here" or GCS_BUCKET_NAME == "your-unique-bucket-name-here":
+    if GCP_PROJECT_ID == "your-gcp-project-id-here" or GCS_BUCKET_NAME == "your-unique-bucket-name-here":
          print("❌ ERROR: Please edit the PROJECT_ID and BUCKET_NAME variables at the top of this script before running.")
     else:
         verify_setup()

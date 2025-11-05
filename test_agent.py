@@ -9,12 +9,12 @@ import unittest
 import os
 from unittest.mock import patch, MagicMock
 
-from config import PROJECT_ID, GCS_BUCKET_NAME, REGION_NAME
+from config import GCP_PROJECT_ID, GCS_BUCKET_NAME, REGION_NAME
 
 # --- IMPORTANT ---
 # We must set these *before* agent.py is imported,
 # so the clients are initialized (or mocked) correctly.
-os.environ['GCP_PROJECT'] = PROJECT_ID
+os.environ['GCP_PROJECT'] = GCP_PROJECT_ID
 os.environ['GCP_REGION'] = REGION_NAME
 os.environ['BUCKET_NAME'] = GCS_BUCKET_NAME
 

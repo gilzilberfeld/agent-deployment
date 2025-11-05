@@ -139,15 +139,38 @@ def handle_diff_request():
         print(f"An unexpected error occurred: {e}")
         return jsonify({"error": "An internal server error occurred."}), 500
 
+    finally:
+        # 5. Clean up files
+        # This `finally` block ensures cleanup runs
+        # even if an error happened in step 3.
+        # We only cleanup if the files were successfully downloaded.
+        print("Entering cleanup block...")
+        try:
+            if file1_name:
+                delete_file_from_gcs(file1_name)
+            if file2_name:
+                delete_file_from_gcs(file2_name)
+        except Exception as e:
+            # Don't fail the request if cleanup fails, just log it.
+            print(f"Warning: Cleanup failed for {file1_name} or {file2_name}: {e}")
 
 
 @app.route("/health", methods=['GET'])
 def health_check():
-    """A simple health check endpoint."""
-    # This proves the server is running.
-    # A more advanced check would test dependencies (e.g., talk to GCS).
-    return jsonify({"status": "ok"}), 200
-
+    """
+    An advanced health check that also tests connectivity
+    to the Gemini API.
+    """
+    try:
+        # Test Gemini connection with a simple, harmless query
+        print("Testing Gemini connectivity...")
+        gemini_model.generate_content("test")
+        print("Gemini connectivity successful.")
+        return jsonify({"status": "ok", "dependencies": {"gemini": "ok"}}), 200
+    except Exception as e:
+        print(f"HEALTH CHECK FAILED: {e}")
+        # 503 Service Unavailable is the standard response
+        return jsonify({"status": "error", "dependencies": {"gemini": "failed"}}), 503
 
 # This allows us to run the app locally for testing
 if __name__ == "__main__":
