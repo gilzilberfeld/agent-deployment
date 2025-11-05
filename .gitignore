@@ -89,6 +89,7 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
+**/__pycache__/
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all
 '+
 /test-project-475514-ab4418b1ca87.json
