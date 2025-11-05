@@ -1,0 +1,1 @@
+$env:GOOGLE_APPLICATION_CREDENTIALS="C:\GitHub\Workshops\agent-deployment\test-project-475514-ab4418b1ca87.json"
