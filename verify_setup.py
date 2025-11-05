@@ -1,9 +1,10 @@
 import os
 from google.cloud import storage
 
+from config import PROJECT_ID, GCS_BUCKET_NAME
+
+
 # --- PLEASE EDIT THESE TWO VALUES ---
-PROJECT_ID = "test-project-475514"
-BUCKET_NAME = "nu-bucket-12345"
 # ------------------------------------
 
 
@@ -30,9 +31,9 @@ def verify_setup():
         return
 
     # 2. Verify bucket access and perform a simple upload/delete
-    print(f"- Checking access to bucket '{BUCKET_NAME}'...")
+    print(f"- Checking access to bucket '{GCS_BUCKET_NAME}'...")
     try:
-        bucket = storage_client.get_bucket(BUCKET_NAME)
+        bucket = storage_client.get_bucket(GCS_BUCKET_NAME)
         blob_name = "test_file.txt"
         blob = bucket.blob(blob_name)
 
@@ -60,7 +61,7 @@ def verify_setup():
 
 
 if __name__ == "__main__":
-    if PROJECT_ID == "your-gcp-project-id-here" or BUCKET_NAME == "your-unique-bucket-name-here":
+    if PROJECT_ID == "your-gcp-project-id-here" or GCS_BUCKET_NAME == "your-unique-bucket-name-here":
          print("❌ ERROR: Please edit the PROJECT_ID and BUCKET_NAME variables at the top of this script before running.")
     else:
         verify_setup()

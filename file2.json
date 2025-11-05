@@ -1,0 +1,11 @@
+{
+  "name": "Yuval",
+  "role": "Attendee",
+  "version": 2,
+  "config": {
+    "feature_flags": [
+      "new_ui"
+    ]
+  }
+}
+

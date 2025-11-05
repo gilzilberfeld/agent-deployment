@@ -1,0 +1,12 @@
+{
+  "name": "Gil",
+  "role": "Facilitator",
+  "version": 1,
+  "config": {
+    "feature_flags": [
+      "new_ui",
+      "beta_access"
+    ]
+  }
+}
+
