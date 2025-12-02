@@ -8,32 +8,33 @@ This is a simple Flask web server that:
 4. Deletes the files from the bucket (for cleanup).
 5. Returns the diff as a JSON response.
 """
-
+import json
 import os
 from flask import Flask, request, jsonify
 from google.cloud import storage
 import vertexai
 from vertexai.generative_models import GenerativeModel
-
-from config import GCP_PROJECT_ID, REGION_NAME, GCS_BUCKET_NAME
+from config import GCP_PROJECT_ID, REGION_NAME, GCS_BUCKET_NAME, GEMINI_MODEL
 
 # --- Configuration ---
 
 # Initialize Flask app
 app = Flask(__name__)
 
+#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\GitHub\Workshops\agent-deployment\test-project-475514-ab4418b1ca87.json"
 # Get environment variables
 # We set this during deployment
 GCP_PROJECT_ID = os.environ.get('GCP_PROJECT', GCP_PROJECT_ID)
 GCP_REGION = os.environ.get('GCP_REGION', REGION_NAME)
 BUCKET_NAME = os.environ.get('BUCKET_NAME', GCS_BUCKET_NAME)
 
+print(f"✅ SUCCESS: Auth initialized for project {GCP_PROJECT_ID}")
 # Initialize Google Cloud clients
 # This will use the service account credentials automatically
 try:
     storage_client = storage.Client()
     vertexai.init(project=GCP_PROJECT_ID, location=GCP_REGION)
-    gemini_model = GenerativeModel("gemini-1.5-flash-001")
+    gemini_model = GenerativeModel(GEMINI_MODEL)
 except Exception as e:
     print(f"ERROR: Failed to initialize Google Cloud clients: {e}")
     # In a real app, you might exit or have better error handling
@@ -91,7 +92,11 @@ def get_gemini_diff(file1_content, file2_content):
     File 2:
     {file2_content}
 
-    Respond ONLY with the JSON diff object.
+    Respond with only the differences - keys and their values - in JSON format. For example:
+    {{
+        "key1": "In file1 is: value_for_key1_in_file1, in file2 is: value_for_key1_in_file2",
+        "key2": "In file1 is: value_for_key2_in_file1, in file2 is: value_for_key2_in_file2",
+    }}
     """
 
     print("Generating content with Gemini...")
@@ -99,6 +104,7 @@ def get_gemini_diff(file1_content, file2_content):
 
     # Clean up the response from Gemini
     raw_text = response.text.strip()
+    print (f"Clean Gemini response: {raw_text}")
     if raw_text.startswith("```json"):
         raw_text = raw_text[7:-3].strip()
 
@@ -132,7 +138,9 @@ def handle_diff_request():
         diff_result_text = get_gemini_diff(file1_content, file2_content)
 
         # 4. Return the successful response
-        return jsonify({"diff": diff_result_text}), 200
+        # result = jsonify({"diff": diff_result_text})
+        result = jsonify({"diff": json.loads(diff_result_text)})
+        return result, 200
 
     except Exception as e:
         # General error handler
@@ -159,5 +167,5 @@ if __name__ == "__main__":
     # You MUST set GOOGLE_APPLICATION_CREDENTIALS in your terminal
     # before running this for local testing.
 
-    app.run(debug=True, host='127.0.0.1', port=int(os.environ.get('PORT', 8080)), use_reloader=False)
+    app.run(debug=True, host='127.0.0.1', port=int(os.environ.get('PORT', 8081)), use_reloader=False)
 

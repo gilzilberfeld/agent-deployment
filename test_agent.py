@@ -44,8 +44,8 @@ class TestAgent(unittest.TestCase):
         # --- 1. Configure Mocks ---
 
         # Mock file content
-        mock_file1_content = '{"name": "Gil"}'
-        mock_file2_content = '{"name": "Esti"}'
+        mock_file1_content = '{"name": "Gil1"}'
+        mock_file2_content = '{"name": "Gil2"}'
 
         # Mock GCS Blob
         mock_blob_file1 = MagicMock()
@@ -69,7 +69,7 @@ class TestAgent(unittest.TestCase):
 
         # Mock Gemini Response
         mock_gemini_response = MagicMock()
-        mock_gemini_response.text = '{"name": {"old": "Gil", "new": "Esti"}}'
+        mock_gemini_response.text = '{"name": {"old": "Gil1", "new": "Gil2"}}'
         mock_gemini_model.generate_content.return_value = mock_gemini_response
 
         # --- 2. Make the API Call ---
@@ -81,7 +81,7 @@ class TestAgent(unittest.TestCase):
         # Check that the response is correct
         self.assertEqual(response.status_code, 200)
         json_data = response.get_json()
-        self.assertEqual(json_data['diff'], '{"name": {"old": "Gil", "new": "Esti"}}')
+        self.assertEqual(json_data['diff'], '{"name": {"old": "Gil1", "new": "Gil2"}}')
 
         # Check that files were "downloaded"
         mock_blob_file1.download_as_text.assert_called_once()

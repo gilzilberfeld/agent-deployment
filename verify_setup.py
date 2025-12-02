@@ -3,11 +3,6 @@ from google.cloud import storage
 
 from config import GCP_PROJECT_ID, GCS_BUCKET_NAME
 
-
-# --- PLEASE EDIT THESE TWO VALUES ---
-# ------------------------------------
-
-
 def verify_setup():
     """
     A simple script to verify that the user's Google Cloud environment

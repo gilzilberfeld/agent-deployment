@@ -7,8 +7,12 @@
 # 2. GCS_BUCKET_NAME: The unique name you created in Step 3
 # 3. SERVICE_ACCOUNT_EMAIL: Found in Step 4 (IAM & Admin -> Service Accounts)
 
-GCP_PROJECT_ID = "test-project-475514"
+GCP_PROJECT_ID = "workshop-id"
 REGION_NAME = "europe-west1"
-GCS_BUCKET_NAME = "nu-bucket-12345"
+GCS_BUCKET_NAME = "bucket-name-firstname-lastname"
 SERVICE_ACCOUNT_EMAIL = ""
 PROMPT_FILE_PATH="external_prompt.txt"
+FILE_1_NAME = "file1.json"
+FILE_2_NAME = "file2.json"
+GEMINI_MODEL = "gemini-2.5-flash"
+
