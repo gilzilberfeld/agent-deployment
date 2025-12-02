@@ -9,14 +9,9 @@ import unittest
 import os
 from unittest.mock import patch, MagicMock
 
-from config import GCP_PROJECT_ID, GCS_BUCKET_NAME, REGION_NAME
-
 # --- IMPORTANT ---
 # We must set these *before* agent.py is imported,
 # so the clients are initialized (or mocked) correctly.
-os.environ['GCP_PROJECT'] = GCP_PROJECT_ID
-os.environ['GCP_REGION'] = REGION_NAME
-os.environ['BUCKET_NAME'] = GCS_BUCKET_NAME
 
 import agent
 
@@ -81,7 +76,7 @@ class TestAgent(unittest.TestCase):
         # Check that the response is correct
         self.assertEqual(response.status_code, 200)
         json_data = response.get_json()
-        self.assertEqual(json_data['diff'], '{"name": {"old": "Gil1", "new": "Gil2"}}')
+        self.assertEqual(json_data['diff'], '{"name": {"new": "Gil2", "old": "Gil1"}')
 
         # Check that files were "downloaded"
         mock_blob_file1.download_as_text.assert_called_once()

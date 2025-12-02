@@ -1,7 +1,8 @@
 import os
 from google.cloud import storage
 
-from config import GCP_PROJECT_ID, GCS_BUCKET_NAME
+from agent import GCP_PROJECT_ID, GCS_BUCKET_NAME
+
 
 def verify_setup():
     """

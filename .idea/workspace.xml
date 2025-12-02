@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="agent works locally">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="agent works locally designed to work also in cloud">
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/verify_setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +54,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python tests.Python tests for test_agent.TestAgent.executor": "Run",
     "Python tests.Python tests in test_agent.py.executor": "Run",
+    "Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario.executor": "Run",
     "Python.agent.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -69,7 +73,7 @@
       <recent name="C:\GitHub\Workshops\agent-deployment\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.agent">
+  <component name="RunManager" selected="Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario">
     <configuration name="agent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="agent-deployment" />
       <option name="ENV_FILES" value="" />
@@ -122,11 +126,27 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for test_agent.TestAgent.test_diff_success_scenario" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="agent-deployment" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/Scripts/python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_agent.TestAgent.test_diff_success_scenario&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario" />
+        <item itemvalue="Python tests.Python tests for test_agent.TestAgent" />
         <item itemvalue="Python.agent" />
         <item itemvalue="Python tests.Python tests in test_agent.py" />
-        <item itemvalue="Python tests.Python tests for test_agent.TestAgent" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764688241740</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="agent works locally designed to work also in cloud">
+      <option name="closed" value="true" />
+      <created>1764690919427</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764690919427</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -212,7 +240,8 @@
     <MESSAGE value="MOds and additions" />
     <MESSAGE value="some ignoring" />
     <MESSAGE value="agent works locally" />
-    <option name="LAST_COMMIT_MESSAGE" value="agent works locally" />
+    <MESSAGE value="agent works locally designed to work also in cloud" />
+    <option name="LAST_COMMIT_MESSAGE" value="agent works locally designed to work also in cloud" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
