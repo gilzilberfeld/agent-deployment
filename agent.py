@@ -167,5 +167,20 @@ if __name__ == "__main__":
     # You MUST set GOOGLE_APPLICATION_CREDENTIALS in your terminal
     # before running this for local testing.
 
-    app.run(debug=True, host='127.0.0.1', port=int(os.environ.get('PORT', 8081)), use_reloader=False)
+    # Check if we are running in Cloud Run
+    # Cloud Run always sets the 'PORT' environment variable.
+    # If 'PORT' is set, we use 0.0.0.0 (public access for container).
+    # If 'PORT' is NOT set, we assume local testing and use 127.0.0.1 (private loopback).
 
+    server_port = os.environ.get("PORT", "8081")
+
+    if os.environ.get("K_SERVICE"):  # 'K_SERVICE' is automatically set by Cloud Run
+        # PROD MODE (Cloud Run)
+        print(f"🚀 Starting in CLOUD mode on port {server_port}")
+        app.run(host="0.0.0.0", port=int(server_port))
+    else:
+        # LOCAL DEV MODE
+        print(f"💻 Starting in LOCAL mode on port {server_port}")
+        # We need to manually load credentials for local dev if not using 'gcloud auth application-default login'
+        # But for this workshop, we assume they rely on the environment variable set in their terminal.
+        app.run(debug=True, host="127.0.0.1", port=int(server_port))

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="some ignoring">
-      <change afterPath="$PROJECT_DIR$/run_local.ps1" afterDir="false" />
+    <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="agent works locally">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py.example" beforeDir="false" afterPath="$PROJECT_DIR$/config.py.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/verify_setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "gilzilberfeld"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/gilzilberfeld/agent-deployment.git",
+    "accountId": "7edc7939-d564-4202-a55e-33923567e0bc"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -186,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762352623963</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="agent works locally">
+      <option name="closed" value="true" />
+      <created>1764688241740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764688241740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -196,7 +211,8 @@
     <MESSAGE value="agent runs" />
     <MESSAGE value="MOds and additions" />
     <MESSAGE value="some ignoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="some ignoring" />
+    <MESSAGE value="agent works locally" />
+    <option name="LAST_COMMIT_MESSAGE" value="agent works locally" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
