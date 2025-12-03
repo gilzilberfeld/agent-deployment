@@ -9,4 +9,8 @@ File 1:
 File 2:
 {content2}
 
-Respond ONLY with the JSON diff object.
+Respond with only the differences - keys and their values - in JSON format. For example:
+{{
+    "key1": "In file1 is: value_for_key1_in_file1, in file2 is: value_for_key1_in_file2",
+    "key2": "In file1 is: value_for_key2_in_file1, in file2 is: value_for_key2_in_file2",
+}}

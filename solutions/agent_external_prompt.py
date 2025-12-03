@@ -1,38 +1,26 @@
-# -*- coding: utf-8 -*-
-"""
-Gemini JSON Diff Agent
-This is a simple Flask web server that:
-1. Receives a POST request with two filenames.
-2. Downloads those files from a Google Cloud Storage bucket.
-3. Sends the file contents to Gemini to get a diff.
-4. Deletes the files from the bucket (for cleanup).
-5. Returns the diff as a JSON response.
-"""
-
 import os
 from flask import Flask, request, jsonify
 from google.cloud import storage
 import vertexai
 from vertexai.generative_models import GenerativeModel
 
-from config import GCP_PROJECT_ID, REGION_NAME, GCS_BUCKET_NAME, PROMPT_FILE_PATH
-
-# --- Configuration ---
-
 # Initialize Flask app
 app = Flask(__name__)
 
-# Get environment variables
-# We set this during deployment
-GCP_PROJECT_ID = os.environ.get('GCP_PROJECT', GCP_PROJECT_ID)
-GCP_REGION = os.environ.get('GCP_REGION', REGION_NAME)
-BUCKET_NAME = os.environ.get('BUCKET_NAME', GCS_BUCKET_NAME)
+GCP_PROJECT_ID = "ADD YOUR PROJECT ID HERE"
+GCS_BUCKET_NAME = "ADD YOUR BUCKET NAME HERE"
+REGION_NAME = "europe-west1"
+SERVICE_ACCOUNT_EMAIL = ""
+PROMPT_FILE_PATH="external_prompt.txt"
+FILE_1_NAME = "file1.json"
+FILE_2_NAME = "file2.json"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # Initialize Google Cloud clients
 # This will use the service account credentials automatically
 try:
     storage_client = storage.Client()
-    vertexai.init(project=GCP_PROJECT_ID, location=GCP_REGION)
+    vertexai.init(project=GCP_PROJECT_ID, location=REGION_NAME)
     gemini_model = GenerativeModel("gemini-1.5-flash-001")
 except Exception as e:
     print(f"ERROR: Failed to initialize Google Cloud clients: {e}")
@@ -45,10 +33,10 @@ except Exception as e:
 
 def download_file_from_gcs(file_name):
     """Downloads a file from the GCS bucket."""
-    if not storage_client or not BUCKET_NAME:
+    if not storage_client or not GCS_BUCKET_NAME:
         raise Exception("Storage client or bucket name not configured.")
 
-    bucket = storage_client.get_bucket(BUCKET_NAME)
+    bucket = storage_client.get_bucket(GCS_BUCKET_NAME)
     blob = bucket.blob(file_name)
 
     if not blob.exists():
@@ -60,10 +48,10 @@ def download_file_from_gcs(file_name):
 
 def delete_file_from_gcs(file_name):
     """Deletes a file from the GCS bucket."""
-    if not storage_client or not BUCKET_NAME:
+    if not storage_client or not GCS_BUCKET_NAME:
         raise Exception("Storage client or bucket name not configured.")
 
-    bucket = storage_client.get_bucket(BUCKET_NAME)
+    bucket = storage_client.get_bucket(GCS_BUCKET_NAME)
     blob = bucket.blob(file_name)
 
     if blob.exists():

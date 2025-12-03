@@ -1,14 +1,7 @@
-# This is a template for the gcloud deploy command.
+# This is a template for the gcloud deploy command in the Cloud Shell, after uploading and unzipping the files.
+The main file should be named main.py.
+
 # 1. Fill in the placeholder values below.
 # 2. Copy the entire command and run it in your terminal.
 
-
-gcloud run deploy gemini-diff-agent \
-  --source . \
-  --platform managed \
-  --region europe-west1 \
-  --allow-unauthenticated \
-  --service-account=YOUR_SERVICE_ACCOUNT_EMAIL \
-  --set-env-vars="BUCKET_NAME=YOUR_BUCKET_NAME" \
-  --set-env-vars="GCP_PROJECT=YOUR_PROJECT_ID" \
-  --set-env-vars="GCP_REGION=europe-west1"
+gcloud run deploy agent-[YOUR-NAME] --source . --region europe-west1 --allow-unauthenticated

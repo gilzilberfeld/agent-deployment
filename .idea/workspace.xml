@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f3b9afa-8514-4a02-b50b-7fd2d9a744d2" name="Changes" comment="agent works locally designed to work also in cloud">
+      <change afterPath="$PROJECT_DIR$/run_remote.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/env_google_credentials.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/env_google_credentials.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gcloud_deploy_script.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gcloud_deploy_script.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions/agent_clean_up.py" beforeDir="false" afterPath="$PROJECT_DIR$/solutions/agent_clean_up.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions/agent_external_prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/solutions/agent_external_prompt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions/agent_health_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/solutions/agent_health_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solutions/external_prompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/solutions/external_prompt.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/verify_setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,18 +31,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "gilzilberfeld"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gilzilberfeld&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/gilzilberfeld/agent-deployment.git",
-    "accountId": "7edc7939-d564-4202-a55e-33923567e0bc"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gilzilberfeld/agent-deployment.git&quot;,
+    &quot;accountId&quot;: &quot;7edc7939-d564-4202-a55e-33923567e0bc&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -49,21 +54,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python tests.Python tests for test_agent.TestAgent.executor": "Run",
-    "Python tests.Python tests in test_agent.py.executor": "Run",
-    "Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario.executor": "Run",
-    "Python.agent.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/GitHub/Workshops/agent-deployment",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for test_agent.TestAgent.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_agent.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario.executor&quot;: &quot;Run&quot;,
+    &quot;Python.agent.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitHub/Workshops/agent-deployment&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitHub\Workshops\agent-deployment" />
@@ -73,7 +78,7 @@
       <recent name="C:\GitHub\Workshops\agent-deployment\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario">
+  <component name="RunManager" selected="Python tests.Python tests for test_agent.TestAgent">
     <configuration name="agent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="agent-deployment" />
       <option name="ENV_FILES" value="" />
@@ -143,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario" />
         <item itemvalue="Python tests.Python tests for test_agent.TestAgent" />
+        <item itemvalue="Python tests.Unittests for test_agent.TestAgent.test_diff_success_scenario" />
         <item itemvalue="Python.agent" />
         <item itemvalue="Python tests.Python tests in test_agent.py" />
       </list>
@@ -229,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764690919427</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="agent works locally designed to work also in cloud">
+      <option name="closed" value="true" />
+      <created>1764692009327</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764692009327</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

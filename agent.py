@@ -21,9 +21,9 @@ app = Flask(__name__)
 
 # Update the project, bucket names and service like bucketname_firstname_lastname
 # We set this during deployment
-GCP_PROJECT_ID = "test-project-475514"
+GCP_PROJECT_ID = "ADD YOUR PROJECT ID HERE"
+GCS_BUCKET_NAME = "ADD YOUR BUCKET NAME HERE"
 REGION_NAME = "europe-west1"
-GCS_BUCKET_NAME = "nu-bucket-12345"
 SERVICE_ACCOUNT_EMAIL = ""
 PROMPT_FILE_PATH="external_prompt.txt"
 FILE_1_NAME = "file1.json"
