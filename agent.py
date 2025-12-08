@@ -35,7 +35,7 @@ print(f"✅ SUCCESS: Auth initialized for project {GCP_PROJECT_ID}")
 # This will use the service account credentials automatically
 try:
     storage_client = storage.Client()
-    vertexai.init(project=GCP_PROJECT_ID, location=REGION_NAME)
+    vertexai.init(project=GCP_PROJECT_ID, location=REGION_NAME, api_transport="rest")
     gemini_model = GenerativeModel(GEMINI_MODEL)
 except Exception as e:
     print(f"ERROR: Failed to initialize Google Cloud clients: {e}")

@@ -20,8 +20,8 @@ GEMINI_MODEL = "gemini-2.5-flash"
 # This will use the service account credentials automatically
 try:
     storage_client = storage.Client()
-    vertexai.init(project=GCP_PROJECT_ID, location=REGION_NAME)
-    gemini_model = GenerativeModel("gemini-1.5-flash-001")
+    vertexai.init(project=GCP_PROJECT_ID, location=REGION_NAME, api_transport="rest")
+    gemini_model = GenerativeModel(GEMINI_MODEL)
 except Exception as e:
     print(f"ERROR: Failed to initialize Google Cloud clients: {e}")
     # In a real app, you might exit or have better error handling
