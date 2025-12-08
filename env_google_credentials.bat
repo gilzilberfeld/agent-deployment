@@ -1,0 +1,1 @@
+SET GOOGLE_APPLICATION_CREDENTIALS=C:\path\to\your\credentials.json

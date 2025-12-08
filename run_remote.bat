@@ -1,0 +1,1 @@
+curl --ssl-no-revoke -X POST -H "Content-Type: application/json" -d "{\"file1\":\"file1.json\", \"file2\":\"file2.json\"}" YOUR_URL/diff
